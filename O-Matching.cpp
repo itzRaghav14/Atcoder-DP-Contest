@@ -32,10 +32,7 @@ int f(int first, int mask) {
 		return dp[first][mask];
 	}
 	
-	// int res = 0;
-	
-	int &res = dp[first][mask];
-	res = 0;
+	int res = 0;
 	
 	for(int second = 0; second < n; second++) {
 		if(a[first][second] == 0) continue;
@@ -44,7 +41,7 @@ int f(int first, int mask) {
 		modadd(res, f(first + 1, mask | bit));
 	}
 	
-	return res;
+	return dp[first][mask] = res;
 	
 }
 
